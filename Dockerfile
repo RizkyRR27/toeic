@@ -46,3 +46,5 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.
 
 # Membuka port 80 untuk akses web
 EXPOSE 80
+
+CMD php artisan migrate --force && apache2-foreground
