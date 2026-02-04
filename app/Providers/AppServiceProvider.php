@@ -24,4 +24,12 @@ class AppServiceProvider extends ServiceProvider
     //     //     URL::forceScheme('https');
     //     // }
     // }
+
+    public function boot()
+{
+    // Tambahkan ini agar aset dipanggil lewat HTTPS
+    if (config('app.env') === 'production') {
+        URL::forceScheme('https');
+    }
+}
 }
